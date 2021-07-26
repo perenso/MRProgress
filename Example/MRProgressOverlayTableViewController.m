@@ -18,7 +18,7 @@
 @implementation MRProgressOverlayTableViewController
 
 + (void)load {
-    [MRProgressOverlayView appearanceWhenContainedIn:UIImageView.class, nil].titleLabelText = @"Waiting ...";
+    [MRProgressOverlayView appearanceWhenContainedInInstancesOfClasses:@[UIImageView.class]].titleLabelText = @"Waiting ...";
 }
 
 - (UIView *)rootView {
@@ -151,7 +151,9 @@
 }
 
 - (IBAction)onShowAlertView:(id)sender {
-    [[[UIAlertView alloc] initWithTitle:@"Native Alert View" message:@"Just to compare blur effects." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Native Alert View" message:@"Just to compare blur effects." preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)simulateProgressView:(MRProgressOverlayView *)progressView {
@@ -193,7 +195,7 @@
     } afterDelay:0.33];
 }
 
-- (void)performBlock:(void(^)())block afterDelay:(NSTimeInterval)delay {
+- (void)performBlock:(void(^)(void))block afterDelay:(NSTimeInterval)delay {
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), block);
 }

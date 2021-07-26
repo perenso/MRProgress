@@ -27,11 +27,11 @@
     [super viewDidLoad];
     
     {
-        id apperance = [MRActivityIndicatorView appearanceWhenContainedIn:MRAppearanceViewController.class, nil];
+        id apperance = [MRActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[MRAppearanceViewController.class]];
         [apperance setLineWidth:20.0];
     }
     {
-        id apperance = [MRActivityIndicatorView appearanceWhenContainedIn:MRProgressOverlayView.class, MRAppearanceViewController.class, nil];
+        id apperance = [MRActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[MRProgressOverlayView.class, MRAppearanceViewController.class]];
         [apperance setLineWidth:1.0];
         
         self.circularProgressView.layer.borderColor = UIColor.redColor.CGColor;
@@ -39,7 +39,7 @@
     //[self.activityIndicatorView startAnimating];
     
 	{
-        id apperance = [MRCircularProgressView appearanceWhenContainedIn:MRAppearanceViewController.class, nil];
+        id apperance = [MRCircularProgressView appearanceWhenContainedInInstancesOfClasses:@[MRAppearanceViewController.class]];
         [apperance setLineWidth:10.0];
         [apperance setBorderWidth:5.0];
         [apperance setAnimationDuration:6.0];
@@ -47,7 +47,7 @@
         [self.circularProgressView setProgress:0.33];
     }
     {
-        id apperance = [MRProgressOverlayView appearanceWhenContainedIn:MRAppearanceViewController.class, nil];
+        id apperance = [MRProgressOverlayView appearanceWhenContainedInInstancesOfClasses:@[MRAppearanceViewController.class]];
         [apperance setTitleLabelText:@"Testing …"];
         
         MRProgressOverlayView *view = [MRProgressOverlayView showOverlayAddedTo:self.overlayContainerView animated:NO];

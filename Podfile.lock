@@ -75,6 +75,10 @@ DEPENDENCIES:
   - MRProgress (from `.`)
   - MRProgress/AFNetworking (from `.`)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+
 EXTERNAL SOURCES:
   MRProgress:
     :path: "."
@@ -83,4 +87,6 @@ SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   MRProgress: b0c2bcff94ee700ac2aea810e1f51720c059cbd3
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: b3ab83a09b57024bdba349617e1244deb92bd5a4
+
+COCOAPODS: 1.10.1
